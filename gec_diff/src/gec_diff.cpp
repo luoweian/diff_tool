@@ -1,19 +1,40 @@
 #include "gec_diff.h"
 #include "async_writer.h"
 
+#include <cpputil/databusclient/include/client.h>
+
 #include <chrono>
 #include <cstdlib>
+#include <memory>
 #include <mutex>
 #include <random>
 
 namespace diff {
 
-// ---- Stub MQ producer（生产环境替换为真实 BMQ/Kafka SDK）----
-class StubMQProducer : public MQProducer {
+// ---- Databus producer ----
+// 每个实例持有两个 DatabusClient，分别对应 base / test topic。
+// topic 格式：<service_name>.diff.base / <service_name>.diff.test
+class DatabusProducer : public MQProducer {
 public:
-    bool Send(const std::string& /*topic*/, const std::string& /*payload*/) override {
-        return true;
+    DatabusProducer(std::shared_ptr<DatabusClient> base_client,
+                    std::shared_ptr<DatabusClient> test_client)
+        : base_client_(std::move(base_client)),
+          test_client_(std::move(test_client)) {}
+
+    bool Send(const std::string& topic,
+              const std::string& payload,
+              const std::string& request_id) override {
+        auto& client = (topic.size() >= 4 &&
+                        topic.compare(topic.size() - 4, 4, "base") == 0)
+                           ? base_client_
+                           : test_client_;
+        auto status = client->send(payload.c_str(), request_id);
+        return status == 0;
     }
+
+private:
+    std::shared_ptr<DatabusClient> base_client_;
+    std::shared_ptr<DatabusClient> test_client_;
 };
 
 // =========================================================================
@@ -79,8 +100,14 @@ GecDiff* GecDiff::GetInstance() {
         obj->service_name_ = cfg.service_name;
         obj->region_       = GetEnv("GEC_DIFF_REGION", "ROW");
         obj->sample_rate_  = GetEnvFloat("GEC_DIFF_SAMPLE_RATE", 1.0f);
-        obj->writer_       = new AsyncWriter(std::move(cfg),
-                                             std::make_unique<StubMQProducer>());
+        std::string base_topic = cfg.service_name + ".diff.base";
+        std::string test_topic = cfg.service_name + ".diff.test";
+        auto base_client = std::make_shared<DatabusClient>(base_topic);
+        auto test_client = std::make_shared<DatabusClient>(test_topic);
+        obj->writer_ = new AsyncWriter(
+            std::move(cfg),
+            std::make_unique<DatabusProducer>(std::move(base_client),
+                                              std::move(test_client)));
         instance = obj;
     });
     return instance;

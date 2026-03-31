@@ -31,7 +31,9 @@ struct PendingMessage {
 class MQProducer {
 public:
     virtual ~MQProducer() = default;
-    virtual bool Send(const std::string& topic, const std::string& payload) = 0;
+    virtual bool Send(const std::string& topic,
+                      const std::string& payload,
+                      const std::string& request_id) = 0;
 };
 
 // 写入器配置（内部使用，不暴露给用户）

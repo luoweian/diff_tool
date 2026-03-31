@@ -8,6 +8,9 @@ cc_library(
     ],
     incs = ['src'],
     warning = 'all',
+    deps = [
+        '//cpputil/databusclient:databusclient',
+    ],
     visibility = ['//...'],
 )
 

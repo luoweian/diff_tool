@@ -84,7 +84,7 @@ void AsyncWriter::WorkerLoop() {
         for (auto& msg : batch) {
             std::string topic = config_.service_name + ".diff."
                 + (msg.group == Group::BASE ? "base" : "test");
-            if (!producer_->Send(topic, Serialize(msg))) {
+            if (!producer_->Send(topic, Serialize(msg), msg.request_id)) {
                 drop_count_.fetch_add(1);
             }
         }

@@ -12,12 +12,14 @@ using namespace diff;
 // =========================================================================
 class MockMQProducer : public MQProducer {
 public:
-    bool Send(const std::string& topic, const std::string& payload) override {
+    bool Send(const std::string& topic,
+              const std::string& payload,
+              const std::string& request_id) override {
         std::lock_guard<std::mutex> lock(mu_);
-        messages_.push_back({topic, payload});
+        messages_.push_back({topic, payload, request_id});
         return true;
     }
-    struct Msg { std::string topic; std::string payload; };
+    struct Msg { std::string topic; std::string payload; std::string request_id; };
     std::vector<Msg> messages_;
     std::mutex mu_;
 };
