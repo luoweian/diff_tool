@@ -1,1 +1,6 @@
 # Blade workspace root
+
+toolchain_config(
+    cc  = '/usr/bin/clang',
+    cxx = '/usr/bin/clang++',
+)

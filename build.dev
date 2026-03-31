@@ -4,15 +4,11 @@
 
 set -euo pipefail
 
-# ---- LLVM 工具链 ----
-export CC=clang
-export CXX=clang++
-
 echo "[build.dev] compiler: $(clang++ --version | head -1)"
 echo "[build.dev] building //gec_diff:gec_diff ..."
-blade build //gec_diff:gec_diff --toolchain=clang
+blade build //gec_diff:gec_diff
 
 echo "[build.dev] running //gec_diff:gec_diff_test ..."
-blade test //gec_diff:gec_diff_test --toolchain=clang
+blade test //gec_diff:gec_diff_test
 
 echo "[build.dev] all done."
