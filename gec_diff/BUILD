@@ -11,7 +11,7 @@ cc_library(
     deps = [
         '//cpputil/databusclient:databusclient',
     ],
-    visibility = ['//...'],
+    visibility = ['PUBLIC'],
 )
 
 cc_test(
