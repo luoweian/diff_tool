@@ -9,7 +9,7 @@ cc_library(
     incs = ['src'],
     warning = 'all',
     deps = [
-        '//cpputil/databusclient:databusclient',
+        "cpputil/databusclient:1.2.0@//cpputil/databusclient:databus",
     ],
 )
 

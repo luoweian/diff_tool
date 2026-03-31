@@ -1,1 +1,5 @@
 # Blade workspace root
+
+blade_config(
+    global_package_install_path = '/opt/tiger/blade_packages',
+)
