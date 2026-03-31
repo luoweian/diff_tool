@@ -3,13 +3,12 @@ cc_library(
     srcs = [
         'src/*.cpp',
     ],
-    hdrs = [
-        'src/*.h',
-    ],
     incs = ['src'],
+    warning = 'all',
     deps = [
         "cpputil/databusclient:1.2.0@//cpputil/databusclient:databus",
     ],
+    visibility = ['PUBLIC']
 )
 
 cc_test(
