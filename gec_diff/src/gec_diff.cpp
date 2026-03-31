@@ -17,9 +17,8 @@ public:
 };
 
 // =========================================================================
-// 内部辅助（采样 + 时间戳）
+// 内部辅助
 // =========================================================================
-
 namespace {
 
 bool ShouldSample(float rate) {
@@ -56,15 +55,15 @@ float GetEnvFloat(const char* key, float fallback) {
 } // namespace
 
 // =========================================================================
-// GecDiff::GetInstance() — 懒初始化，线程安全
+// 懒初始化单例（线程安全）
+// GEC_DIFF_ENABLED != "1" 时返回 nullptr，Write 立即退出
 // =========================================================================
-
 GecDiff* GecDiff::GetInstance() {
-    static GecDiff*      instance = nullptr;
-    static bool          checked  = false;
+    static GecDiff*       instance = nullptr;
+    static bool           checked  = false;
     static std::once_flag flag;
 
-    if (checked) return instance;
+    if (checked) return instance;  // 快速路径，无锁
 
     std::call_once(flag, [] {
         checked = true;
@@ -95,11 +94,11 @@ bool GecDiff::IsEnabled() {
     return GetInstance() != nullptr;
 }
 
-void GecDiff::Write(Group              group,
-                    const std::string& request_id,
-                    const std::string& key,
-                    DiffValue          value,
-                    const Tags&        tags) {
+void GecDiff::WriteOne(const std::string& request_id,
+                       Group              group,
+                       const std::string& key,
+                       DiffValue          value,
+                       const Tags&        tags) {
     GecDiff* inst = GetInstance();
     if (!inst) return;
     if (!ShouldSample(inst->sample_rate_)) return;
@@ -116,10 +115,11 @@ void GecDiff::Write(Group              group,
     inst->writer_->Enqueue(std::move(msg));
 }
 
-void GecDiff::Write(Group              group,
-                    const std::string& request_id,
-                    const FieldList&   fields,
-                    const Tags&        tags) {
+void GecDiff::WriteMany(const std::string& request_id,
+                        Group              group,
+                        const std::string& key,
+                        const FieldList&   fields,
+                        const Tags&        tags) {
     GecDiff* inst = GetInstance();
     if (!inst || fields.empty()) return;
     if (!ShouldSample(inst->sample_rate_)) return;
@@ -129,7 +129,7 @@ void GecDiff::Write(Group              group,
     msg.service      = inst->service_name_;
     msg.region       = inst->region_;
     msg.group        = group;
-    msg.key          = "";
+    msg.key          = key;
     msg.fields       = fields;
     msg.tags         = tags;
     msg.timestamp_ms = NowMs();

@@ -13,61 +13,78 @@
  *
  * 用法：
  *   // 单值
- *   diff::Write(Group::BASE, request_id, "ctr_score", 0.12, tags);
- *   diff::Write(Group::TEST, request_id, "ctr_score", 0.13, tags);
+ *   diff::Write(request_id, Group::BASE, "ctr_score", 0.12, tags);
+ *   diff::Write(request_id, Group::TEST, "ctr_score", 0.13, tags);
  *
- *   // 批量（已构造好 DiffValue 列表）
- *   diff::Write(Group::BASE, request_id, {{"ctr", DiffValue(0.12)}, {"uid", DiffValue(42)}}, tags);
+ *   // 批量（直接写原生值，无需显式类型转换）
+ *   diff::Write(request_id, Group::BASE, "feature", {
+ *       {"ctr",    0.12},
+ *       {"uid",    42},
+ *       {"is_vip", true},
+ *   }, tags);
  */
 
 #include "diff_types.h"
-#include "diff_value.h"
+#include "diff_value.h"   // 内部类型，用户无需直接使用
 
 #include <string>
 #include <vector>
 
 namespace diff {
 
+// 内部类型：value 字段列表（DiffValue 有隐式构造，用户直接写原生值即可）
 using FieldList = std::vector<std::pair<std::string, DiffValue>>;
 
+// =========================================================================
+// GecDiff — 内部单例，负责 MQ 写入（用户不直接使用此类）
+// =========================================================================
 class AsyncWriter;
 
-// ---- MQ 写入层（接收已转换好的 DiffValue，不做类型推导）----
 class GecDiff {
 public:
-    static void Write(Group              group,
-                      const std::string& request_id,
-                      const std::string& key,
-                      DiffValue          value,
-                      const Tags&        tags = {});
-
-    static void Write(Group              group,
-                      const std::string& request_id,
-                      const FieldList&   fields,
-                      const Tags&        tags = {});
-
     static bool IsEnabled();
+
+    static void WriteOne(const std::string& request_id, Group group,
+                         const std::string& key, DiffValue value,
+                         const Tags& tags);
+
+    static void WriteMany(const std::string& request_id, Group group,
+                          const std::string& key, const FieldList& fields,
+                          const Tags& tags);
 
 private:
     GecDiff() = default;
     static GecDiff* GetInstance();
 
-    AsyncWriter* writer_       = nullptr;
+    AsyncWriter* writer_      = nullptr;
     std::string  service_name_;
     std::string  region_;
-    float        sample_rate_  = 1.0f;
+    float        sample_rate_ = 1.0f;
 };
 
-// ---- 类型转换层（模板，T → DiffValue，与 MQ 写入无关）----
+// =========================================================================
+// 用户接口：diff::Write
+// 参数顺序：request_id, group, key, value/fields [, tags]
+// =========================================================================
 
+// 单值写入（任意原生类型自动转换，无需指定 DiffValue）
 template <typename T>
-inline void Write(Group              group,
-                  const std::string& request_id,
+inline void Write(const std::string& request_id,
+                  Group              group,
                   const std::string& key,
                   T&&                value,
                   const Tags&        tags = {}) {
-    GecDiff::Write(group, request_id, key,
-                   DiffValue(std::forward<T>(value)), tags);
+    GecDiff::WriteOne(request_id, group, key,
+                      DiffValue(std::forward<T>(value)), tags);
+}
+
+// 批量写入（value 直接写原生值，隐式构造，无需显式类型转换）
+inline void Write(const std::string& request_id,
+                  Group              group,
+                  const std::string& key,
+                  const FieldList&   fields,
+                  const Tags&        tags = {}) {
+    GecDiff::WriteMany(request_id, group, key, fields, tags);
 }
 
 } // namespace diff
