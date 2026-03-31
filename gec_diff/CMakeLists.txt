@@ -12,8 +12,7 @@ add_library(gec_diff STATIC
 )
 
 target_include_directories(gec_diff
-    PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/include
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
 target_compile_options(gec_diff PRIVATE -Wall -Wextra -O2)
@@ -34,4 +33,4 @@ endif()
 
 # ---- 安装 ----
 install(TARGETS gec_diff ARCHIVE DESTINATION lib)
-install(DIRECTORY include/ DESTINATION include/gec_diff)
+install(FILES src/gec_diff.h DESTINATION include/gec_diff)
