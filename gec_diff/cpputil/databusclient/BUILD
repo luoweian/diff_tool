@@ -1,4 +1,5 @@
-prebuilt_cc_library(
+cc_library(
     name = 'databus',
-    deps = [],
+    hdrs = ['include/client.h'],
+    incs = ['include'],
 )
