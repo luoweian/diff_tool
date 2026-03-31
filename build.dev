@@ -4,6 +4,9 @@
 
 set -euo pipefail
 
+export CC=clang
+export CXX=clang++
+
 echo "[build.dev] compiler: $(clang++ --version | head -1)"
 echo "[build.dev] building //gec_diff:gec_diff ..."
 blade build //gec_diff:gec_diff
