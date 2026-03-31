@@ -8,8 +8,6 @@
  *   GEC_DIFF_SERVICE_NAME=svc     服务名
  *   GEC_DIFF_REGION=ROW           数据域（ROW/EU/TTP，默认 ROW）
  *   GEC_DIFF_SAMPLE_RATE=1.0      采样率 0.0~1.0
- *   GEC_DIFF_THREAD_POOL_SIZE=4   写线程数（默认 2）
- *   GEC_DIFF_QUEUE_SIZE=10000     队列深度（默认 10000）
  *
  * 用法：
  *   // 单值
@@ -27,8 +25,11 @@
 #include "diff_types.h"
 #include "diff_value.h"   // 内部类型，用户无需直接使用
 
+#include <memory>
 #include <string>
 #include <vector>
+
+class DatabusClient;
 
 namespace diff {
 
@@ -36,10 +37,8 @@ namespace diff {
 using FieldList = std::vector<std::pair<std::string, DiffValue>>;
 
 // =========================================================================
-// GecDiff — 内部单例，负责 MQ 写入（用户不直接使用此类）
+// GecDiff — 内部单例，负责 Databus 写入（用户不直接使用此类）
 // =========================================================================
-class AsyncWriter;
-
 class GecDiff {
 public:
     static bool IsEnabled();
@@ -56,10 +55,11 @@ private:
     GecDiff() = default;
     static GecDiff* GetInstance();
 
-    AsyncWriter* writer_      = nullptr;
-    std::string  service_name_;
-    std::string  region_;
-    float        sample_rate_ = 1.0f;
+    std::shared_ptr<DatabusClient> base_client_;
+    std::shared_ptr<DatabusClient> test_client_;
+    std::string                    service_name_;
+    std::string                    region_;
+    float                          sample_rate_ = 1.0f;
 };
 
 // =========================================================================

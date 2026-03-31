@@ -1,46 +1,60 @@
 #include "gec_diff.h"
-#include "async_writer.h"
 
 #include <cpputil/databusclient/include/client.h>
 
 #include <chrono>
 #include <cstdlib>
-#include <memory>
 #include <mutex>
 #include <random>
+#include <string>
 
 namespace diff {
 
-// ---- Databus producer ----
-// 每个实例持有两个 DatabusClient，分别对应 base / test topic。
-// topic 格式：<service_name>.diff.base / <service_name>.diff.test
-class DatabusProducer : public MQProducer {
-public:
-    DatabusProducer(std::shared_ptr<DatabusClient> base_client,
-                    std::shared_ptr<DatabusClient> test_client)
-        : base_client_(std::move(base_client)),
-          test_client_(std::move(test_client)) {}
-
-    bool Send(const std::string& topic,
-              const std::string& payload,
-              const std::string& request_id) override {
-        auto& client = (topic.size() >= 4 &&
-                        topic.compare(topic.size() - 4, 4, "base") == 0)
-                           ? base_client_
-                           : test_client_;
-        auto status = client->send(payload.c_str(), request_id);
-        return status == 0;
-    }
-
-private:
-    std::shared_ptr<DatabusClient> base_client_;
-    std::shared_ptr<DatabusClient> test_client_;
-};
-
 // =========================================================================
-// 内部辅助
+// 序列化（二进制格式，Flink 侧对应 DiffRecordDeserializer）
 // =========================================================================
 namespace {
+
+void WriteUint32(std::string& out, uint32_t v) {
+    out.append(reinterpret_cast<const char*>(&v), 4);
+}
+void WriteString(std::string& out, const std::string& s) {
+    WriteUint32(out, static_cast<uint32_t>(s.size()));
+    out.append(s);
+}
+void WriteInt64(std::string& out, int64_t v) {
+    out.append(reinterpret_cast<const char*>(&v), 8);
+}
+
+std::string Serialize(const std::string& request_id,
+                      const std::string& service,
+                      const std::string& region,
+                      Group              group,
+                      const std::string& key,
+                      const FieldList&   fields,
+                      const Tags&        tags,
+                      int64_t            timestamp_ms) {
+    std::string out;
+    out.reserve(256);
+    WriteString(out, request_id);
+    WriteString(out, service);
+    WriteString(out, region);
+    out.push_back(static_cast<char>(group == Group::BASE ? 1 : 2));
+    WriteString(out, key);
+    WriteUint32(out, static_cast<uint32_t>(tags.size()));
+    for (const auto& [k, v] : tags) {
+        WriteString(out, k);
+        WriteString(out, v);
+    }
+    WriteInt64(out, timestamp_ms);
+    WriteUint32(out, static_cast<uint32_t>(fields.size()));
+    for (const auto& [name, val] : fields) {
+        WriteString(out, name);
+        out.push_back(static_cast<char>(static_cast<int>(val.type)));
+        WriteString(out, val.Serialize());
+    }
+    return out;
+}
 
 bool ShouldSample(float rate) {
     if (rate >= 1.0f) return true;
@@ -76,47 +90,34 @@ float GetEnvFloat(const char* key, float fallback) {
 } // namespace
 
 // =========================================================================
-// 懒初始化单例（线程安全）
-// GEC_DIFF_ENABLED != "1" 时返回 nullptr，Write 立即退出
+// 懒初始化单例
 // =========================================================================
 GecDiff* GecDiff::GetInstance() {
     static GecDiff*       instance = nullptr;
     static bool           checked  = false;
     static std::once_flag flag;
 
-    if (checked) return instance;  // 快速路径，无锁
+    if (checked) return instance;
 
     std::call_once(flag, [] {
         checked = true;
         const char* enabled = std::getenv("GEC_DIFF_ENABLED");
         if (!enabled || std::string(enabled) != "1") return;
 
-        WriterConfig cfg;
-        cfg.service_name     = GetEnv("GEC_DIFF_SERVICE_NAME", "unknown_service");
-        cfg.queue_size       = GetEnvInt("GEC_DIFF_QUEUE_SIZE", 10000);
-        cfg.thread_pool_size = GetEnvInt("GEC_DIFF_THREAD_POOL_SIZE", 2);
-
         auto* obj          = new GecDiff();
-        obj->service_name_ = cfg.service_name;
+        obj->service_name_ = GetEnv("GEC_DIFF_SERVICE_NAME", "unknown_service");
         obj->region_       = GetEnv("GEC_DIFF_REGION", "ROW");
         obj->sample_rate_  = GetEnvFloat("GEC_DIFF_SAMPLE_RATE", 1.0f);
-        std::string base_topic = cfg.service_name + ".diff.base";
-        std::string test_topic = cfg.service_name + ".diff.test";
-        auto base_client = std::make_shared<DatabusClient>(base_topic);
-        auto test_client = std::make_shared<DatabusClient>(test_topic);
-        obj->writer_ = new AsyncWriter(
-            std::move(cfg),
-            std::make_unique<DatabusProducer>(std::move(base_client),
-                                              std::move(test_client)));
+        obj->base_client_  = std::make_shared<DatabusClient>(obj->service_name_ + ".diff.base");
+        obj->test_client_  = std::make_shared<DatabusClient>(obj->service_name_ + ".diff.test");
         instance = obj;
     });
     return instance;
 }
 
 // =========================================================================
-// MQ 写入层（不涉及类型转换，只组装 PendingMessage 并入队）
+// MQ 写入层
 // =========================================================================
-
 bool GecDiff::IsEnabled() {
     return GetInstance() != nullptr;
 }
@@ -130,16 +131,10 @@ void GecDiff::WriteOne(const std::string& request_id,
     if (!inst) return;
     if (!ShouldSample(inst->sample_rate_)) return;
 
-    PendingMessage msg;
-    msg.request_id   = request_id;
-    msg.service      = inst->service_name_;
-    msg.region       = inst->region_;
-    msg.group        = group;
-    msg.key          = key;
-    msg.fields       = {{"", std::move(value)}};
-    msg.tags         = tags;
-    msg.timestamp_ms = NowMs();
-    inst->writer_->Enqueue(std::move(msg));
+    auto payload = Serialize(request_id, inst->service_name_, inst->region_,
+                             group, key, {{"", std::move(value)}}, tags, NowMs());
+    auto& client = (group == Group::BASE) ? inst->base_client_ : inst->test_client_;
+    client->send(payload.c_str(), request_id);
 }
 
 void GecDiff::WriteMany(const std::string& request_id,
@@ -151,16 +146,10 @@ void GecDiff::WriteMany(const std::string& request_id,
     if (!inst || fields.empty()) return;
     if (!ShouldSample(inst->sample_rate_)) return;
 
-    PendingMessage msg;
-    msg.request_id   = request_id;
-    msg.service      = inst->service_name_;
-    msg.region       = inst->region_;
-    msg.group        = group;
-    msg.key          = key;
-    msg.fields       = fields;
-    msg.tags         = tags;
-    msg.timestamp_ms = NowMs();
-    inst->writer_->Enqueue(std::move(msg));
+    auto payload = Serialize(request_id, inst->service_name_, inst->region_,
+                             group, key, fields, tags, NowMs());
+    auto& client = (group == Group::BASE) ? inst->base_client_ : inst->test_client_;
+    client->send(payload.c_str(), request_id);
 }
 
 } // namespace diff
