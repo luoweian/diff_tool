@@ -7,7 +7,6 @@ cc_library(
         'src/*.h',
     ],
     incs = ['src'],
-    warning = 'all',
     deps = [
         "cpputil/databusclient:1.2.0@//cpputil/databusclient:databus",
     ],
