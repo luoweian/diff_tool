@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# build.dev — 用 LLVM 编译并测试 gec_diff
+# 用法：bash build.dev
+
+set -euo pipefail
+
+# ---- LLVM 工具链 ----
+export CC=clang
+export CXX=clang++
+
+echo "[build.dev] compiler: $(clang++ --version | head -1)"
+echo "[build.dev] building //gec_diff:gec_diff ..."
+blade build //gec_diff:gec_diff --toolchain=clang
+
+echo "[build.dev] running //gec_diff:gec_diff_test ..."
+blade test //gec_diff:gec_diff_test --toolchain=clang
+
+echo "[build.dev] all done."
