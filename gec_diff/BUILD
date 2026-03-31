@@ -1,15 +1,10 @@
 cc_library(
     name = 'gec_diff',
     srcs = [
-        'src/diff_value.cpp',
-        'src/async_writer.cpp',
-        'src/gec_diff.cpp',
+        'src/*.cpp',
     ],
     hdrs = [
-        'src/diff_types.h',
-        'src/diff_value.h',
-        'src/async_writer.h',
-        'src/gec_diff.h',
+        'src/*.h',
     ],
     incs = ['src'],
     warning = 'all',
