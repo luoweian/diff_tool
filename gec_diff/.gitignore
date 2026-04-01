@@ -1,0 +1,10 @@
+.blade_tools/
+.sailfish/
+build64_release/
+.trace.log
+build.ninja
+sailfish_runtime_auto_conf
+cpputil/databusclient/*
+blade-bin/
+cpp3rdlib/
+cpputil/metrics2/

@@ -1,7 +1,5 @@
 #include "gec_diff.h"
 
-#include <cpputil/databusclient/include/client.h>
-
 #include <chrono>
 #include <cstdlib>
 #include <mutex>
@@ -13,7 +11,6 @@ namespace diff {
 // =========================================================================
 // 序列化（二进制格式，Flink 侧对应 DiffRecordDeserializer）
 // =========================================================================
-namespace {
 
 void WriteUint32(std::string& out, uint32_t v) {
     out.append(reinterpret_cast<const char*>(&v), 4);
@@ -87,8 +84,9 @@ float GetEnvFloat(const char* key, float fallback) {
     return fallback;
 }
 
-} // namespace
+} // namespace diff
 
+using namespace diff;
 // =========================================================================
 // 懒初始化单例
 // =========================================================================
@@ -108,8 +106,8 @@ GecDiff* GecDiff::GetInstance() {
         obj->service_name_ = GetEnv("GEC_DIFF_SERVICE_NAME", "unknown_service");
         obj->region_       = GetEnv("GEC_DIFF_REGION", "ROW");
         obj->sample_rate_  = GetEnvFloat("GEC_DIFF_SAMPLE_RATE", 1.0f);
-        obj->base_client_  = std::make_shared<DatabusClient>(obj->service_name_ + ".diff.base");
-        obj->test_client_  = std::make_shared<DatabusClient>(obj->service_name_ + ".diff.test");
+        obj->base_client_.reset(new DatabusClient("base_topic"));
+        obj->test_client_.reset(new DatabusClient("test_topic"));
         instance = obj;
     });
     return instance;
@@ -151,5 +149,3 @@ void GecDiff::WriteMany(const std::string& request_id,
     auto& client = (group == Group::BASE) ? inst->base_client_ : inst->test_client_;
     client->send(payload.c_str(), request_id);
 }
-
-} // namespace diff

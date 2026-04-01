@@ -1,94 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="050f4aed-f007-4d24-9134-5a9aeaaf9f5f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/ArrayToQueue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/ArrayToQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/ArrayToStack.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/ArrayToStack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_01_Array_To_Stack_Queue$ArrayQueue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_01_Array_To_Stack_Queue$ArrayQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_01_Array_To_Stack_Queue$ArrayStack.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_01_Array_To_Stack_Queue$ArrayStack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_01_Array_To_Stack_Queue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_01_Array_To_Stack_Queue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_02_GetMinStack$MyStack1.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_02_GetMinStack$MyStack1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_02_GetMinStack$MyStack2.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_02_GetMinStack$MyStack2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_02_GetMinStack.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_02_GetMinStack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_03_StackAndQueueConvert$TwoQueuesStack.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_03_StackAndQueueConvert$TwoQueuesStack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_03_StackAndQueueConvert$TwoStacksQueue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_03_StackAndQueueConvert$TwoStacksQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_03_StackAndQueueConvert.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_03_StackAndQueueConvert.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$Cat.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$Cat.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$Dog.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$Dog.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$DogCatQueue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$DogCatQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$Pet.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$Pet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$PetEnterQueue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue$PetEnterQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_04_DogCatQueue.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_05_RotateMatrix.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_05_RotateMatrix.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_06_PrintMatrixSpiralOrder.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_06_PrintMatrixSpiralOrder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_07_ReverseList$DoubleNode.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_07_ReverseList$DoubleNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_07_ReverseList$Node.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_07_ReverseList$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_07_ReverseList.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_07_ReverseList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_08_ZigZagPrintMatrix.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_08_ZigZagPrintMatrix.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_09_FindNumInSortedMatrix.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_09_FindNumInSortedMatrix.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_10_PrintCommonPart$Node.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_10_PrintCommonPart$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_10_PrintCommonPart.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_10_PrintCommonPart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_11_IsPalindromeList$Node.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_11_IsPalindromeList$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_11_IsPalindromeList.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_11_IsPalindromeList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_12_SmallerEqualBigger$Node.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_12_SmallerEqualBigger$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_12_SmallerEqualBigger.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_12_SmallerEqualBigger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_13_CopyListWithRandom$Node.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_13_CopyListWithRandom$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_13_CopyListWithRandom.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_13_CopyListWithRandom.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_14_FindFirstIntersectNode$Node.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_14_FindFirstIntersectNode$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_14_FindFirstIntersectNode.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_14_FindFirstIntersectNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_15_FindOneLessValueIndex.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/Code_15_FindOneLessValueIndex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/interviewQuestions/GetMinStack.class" afterPath="$PROJECT_DIR$/target/classes/interviewQuestions/GetMinStack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_00_BubbleSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_00_BubbleSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_01_InsertionSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_01_InsertionSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_02_SelectionSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_02_SelectionSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_03_HeapSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_03_HeapSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_04_QuickSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_04_QuickSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_05_MergeSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_05_MergeSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_06_BucketSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_06_BucketSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_07_RadixSort.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_07_RadixSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_08_NetherlandsFlag.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_08_NetherlandsFlag.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$AgeAscendingComparator.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$AgeAscendingComparator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$AgeDescendingComparator.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$AgeDescendingComparator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$IdAscendingComparator.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$IdAscendingComparator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$IdDescendingComparator.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$IdDescendingComparator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$Student.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator$Student.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_09_Comparator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_10_GetAllNotIncluded.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_10_GetAllNotIncluded.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_11_MaxGap.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_11_MaxGap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sort/Code_12_SmallSum.class" afterPath="$PROJECT_DIR$/target/classes/sort/Code_12_SmallSum.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_01_PreInPosTraversal$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_01_PreInPosTraversal$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_01_PreInPosTraversal.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_01_PreInPosTraversal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_02_PrintBinaryTree$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_02_PrintBinaryTree$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_02_PrintBinaryTree.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_02_PrintBinaryTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_03_SuccessorNode$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_03_SuccessorNode$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_03_SuccessorNode.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_03_SuccessorNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_04_SerializeAndReconstructTree$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_04_SerializeAndReconstructTree$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_04_SerializeAndReconstructTree.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_04_SerializeAndReconstructTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_05_PaperFolding.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_05_PaperFolding.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_06_IsBalancedTree$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_06_IsBalancedTree$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_06_IsBalancedTree.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_06_IsBalancedTree.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_07_IsBSTAndCBT$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_07_IsBSTAndCBT$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_07_IsBSTAndCBT.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_07_IsBSTAndCBT.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_08_CompleteTreeNodeNumber$Node.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_08_CompleteTreeNodeNumber$Node.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/tree/Code_08_CompleteTreeNodeNumber.class" afterPath="$PROJECT_DIR$/target/classes/tree/Code_08_CompleteTreeNodeNumber.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/ArrayToStack.class" afterPath="$PROJECT_DIR$/target/test-classes/ArrayToStack.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/SortTest1.class" afterPath="$PROJECT_DIR$/target/test-classes/SortTest1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Algorithm.iml" afterPath="$PROJECT_DIR$/Algorithm.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/interviewQuestions/Code_07_ReverseList.java" afterPath="$PROJECT_DIR$/src/main/java/interviewQuestions/Code_07_ReverseList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tree/Code_04_SerializeAndReconstructTree.java" afterPath="$PROJECT_DIR$/src/main/java/tree/Code_04_SerializeAndReconstructTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tree/Code_05_PaperFolding.java" afterPath="$PROJECT_DIR$/src/main/java/tree/Code_05_PaperFolding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tree/Code_06_IsBalancedTree.java" afterPath="$PROJECT_DIR$/src/main/java/tree/Code_06_IsBalancedTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tree/Code_07_IsBSTAndCBT.java" afterPath="$PROJECT_DIR$/src/main/java/tree/Code_07_IsBSTAndCBT.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tree/Code_08_CompleteTreeNodeNumber.java" afterPath="$PROJECT_DIR$/src/main/java/tree/Code_08_CompleteTreeNodeNumber.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_api_1_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_collectionschema_1_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_core_1_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_runtime_1_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_8_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_21_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_searchbox_jest_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_searchbox_jest_common_5_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_42.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_2_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_7_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_7_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -297,13 +262,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -444,7 +402,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -518,12 +476,11 @@
       <pane id="PackagesPane" />
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_f02737a78695063deace08e96d5042710d3e32db/cmd/git.exe" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;claude/diff-tool-implementation-bQUoC&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IDEAU\Algorithm\src\main\java\sort" />
@@ -549,101 +506,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Code_05_PaperFolding">
-    <configuration name="ArrayNumberSumEqualN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="dynamicProgramming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="dynamicProgramming.ArrayNumberSumEqualN" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Algorithm" />
-      <envs />
-    </configuration>
-    <configuration name="Code_05_PaperFolding" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="tree.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="tree.Code_05_PaperFolding" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Algorithm" />
-      <envs />
-    </configuration>
-    <configuration name="Code_05_RotateMatrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="interviewQuestions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="interviewQuestions.Code_05_RotateMatrix" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Algorithm" />
-      <envs />
-    </configuration>
-    <configuration name="Code_07_ReverseList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="interviewQuestions.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="interviewQuestions.Code_07_ReverseList" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Algorithm" />
-      <envs />
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="dynamicProgramming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="dynamicProgramming.Test" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Algorithm" />
-      <envs />
-    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -651,99 +513,120 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+    <configuration name="ArrayNumberSumEqualN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dynamicProgramming.ArrayNumberSumEqualN" />
+      <module name="Algorithm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dynamicProgramming.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
+    <configuration name="Code_05_PaperFolding" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.Code_05_PaperFolding" />
+      <module name="Algorithm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tree.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Code_05_RotateMatrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="interviewQuestions.Code_05_RotateMatrix" />
+      <module name="Algorithm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="interviewQuestions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Code_07_ReverseList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="interviewQuestions.Code_07_ReverseList" />
+      <module name="Algorithm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="interviewQuestions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dynamicProgramming.Test" />
+      <module name="Algorithm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dynamicProgramming.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.Test" />
-      <item index="1" class="java.lang.String" itemvalue="Application.ArrayNumberSumEqualN" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Code_05_RotateMatrix" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Code_07_ReverseList" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Code_05_PaperFolding" />
+    <list>
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.ArrayNumberSumEqualN" />
+      <item itemvalue="Application.Code_05_RotateMatrix" />
+      <item itemvalue="Application.Code_07_ReverseList" />
+      <item itemvalue="Application.Code_05_PaperFolding" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Code_05_PaperFolding" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Code_07_ReverseList" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Code_05_RotateMatrix" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ArrayNumberSumEqualN" />
-        <item index="4" class="java.lang.String" itemvalue="Application.Test" />
+      <list>
+        <item itemvalue="Application.Code_05_PaperFolding" />
+        <item itemvalue="Application.Code_07_ReverseList" />
+        <item itemvalue="Application.Code_05_RotateMatrix" />
+        <item itemvalue="Application.ArrayNumberSumEqualN" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -869,22 +752,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/dynamicProgramming/ArrayNumberSumEqualN.java</url>
           <line>12</line>
-          <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="23" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/sort/Code_09_Comparator.java">

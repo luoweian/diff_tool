@@ -24,14 +24,29 @@
 
 #include "diff_types.h"
 #include "diff_value.h"   // 内部类型，用户无需直接使用
+#include <cpputil/databusclient/include/client.h>
 
 #include <memory>
 #include <string>
 #include <vector>
 
-class DatabusClient;
-
 namespace diff {
+
+typedef std::shared_ptr<DatabusChannel> DatabusChannelPtr;
+class DatabusClient {
+public:
+    DatabusClient(const std::string& channel) {
+        _channel = _collector.get_channel(channel);
+    }
+
+    error_t send(const std::string& message, const std::string& key, const int codec = 0) {
+        return _channel->send(message, key, codec);
+    }
+
+private:
+    DatabusCollector _collector;
+    DatabusChannelPtr _channel;
+};
 
 // 内部类型：value 字段列表（DiffValue 有隐式构造，用户直接写原生值即可）
 using FieldList = std::vector<std::pair<std::string, DiffValue>>;

@@ -1,18 +1,94 @@
 #!/usr/bin/env bash
-# build.dev — 用 LLVM 编译并测试 gec_diff
-# 用法：bash build.dev
 
-set -euo pipefail
+# hack for code format 
+if [ -f "pre-commit" ];then
+    cp pre-commit ./.git/hooks/pre-commit
+fi
 
-# ---- LLVM 工具链 ----
-export CC=clang
-export CXX=clang++
 
-echo "[build.dev] compiler: $(clang++ --version | head -1)"
-echo "[build.dev] building //:gec_diff ..."
-blade build //:gec_diff --toolchain=x86_64-x86_64-clang-1606
+start=`date +%s`
+echo "================= build started ================="
+source_root=$(cd `dirname $0`; pwd)
+cd $source_root
+target="gec_diff"
 
-echo "[build.dev] running //:gec_diff_test ..."
-blade test //:gec_diff_test --toolchain=x86_64-x86_64-clang-1606
+build_in_local=0
+update_deps=1
+clang=1
+gcc=0
+while [ "$#" -gt 0 ]; do
+    case $1 in
+        -t|--target)
+            target=$2
+            shift 2
+            ;;
+        -nu|--no-update-deps)
+            update_deps=0
+            shift
+            ;;
+        -bil|--build-in-local)
+            build_in_local=1
+            shift
+            ;;
+        -c | --clang)
+            clang=1
+            gcc=0
+            shift
+            ;;
+        -g | --gcc)
+            gcc=1
+            clang=0
+            shift
+            ;;
+        -h|--help)
+            echo "usage: ./build.sh [-t|--target] target"
+            echo "  default behavior: blade build --update-deps"
+            exit 1
+            ;;
+        *)
+            echo "error: unrecognized option $1"
+            echo "usage: ./build.sh [-t|--target] target"
+            exit 1
+    esac
+done
 
-echo "[build.dev] all done."
+if [ $build_in_local -eq 1 ]; then
+    export DISABLE_CAS=1
+    export DISABLE_DISTCC=1
+fi
+
+blade_args="--split-dwarf"
+if [ $update_deps -eq 1 ]; then
+    blade_args="$blade_args --update-deps"
+fi
+
+if [ $clang -eq 1 ] || [ "$LLVM_ENABLE" = "1" ] || [ "$CUSTOM_LLVM_ENABLE" = "1" ]; then
+    source /etc/os-release
+    cp ./BLADE_ROOT_LLVM.local ../BLADE_ROOT.local
+    if [ $VERSION_ID -lt 9 ]; then
+        _info "clang无法在 Debian8 及以下的机器使用, 当前Debian版本为 $VERSION_ID, 请尽快迁移至 Debian9 机器。"
+        _info "如需切换到gcc830, 请使用./build.sh --gcc"
+    else
+        echo "=== using llvm in gec_diff engine ==="
+        export TOOLCHAIN=x86_64-clang1101
+        blade build --toolchain=x86_64-clang1101 --enable-bpt :$target $blade_args
+    fi
+else
+    echo "=== using gcc830 in gec_diff engine ==="
+    blade build --toolchain=x86_64-gcc830 :$target $blade_args
+fi
+
+if [ $? -ne 0 ];then
+    echo "==============!!! build failed !!!==============";
+    exit 1;
+fi
+echo "================= build success ================="
+
+source_root=$(cd `dirname $0`; pwd)
+cd $source_root
+rm -fr output
+mkdir -p output/
+echo "================= output created ================="
+end=`date +%s`
+diff=$[end-start]
+echo "================= use $diff seconds =============="

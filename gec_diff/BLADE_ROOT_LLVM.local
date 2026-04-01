@@ -1,0 +1,62 @@
+global_config(
+    build_dir_root = '..',
+)
+buster_cxxflags=[
+    '-faligned-new',
+    '-Wno-ignored-qualifiers',
+    '-Wno-error=class-memaccess',
+    '-Wno-implicit-fallthrough',
+    '-Wno-reorder',
+    '-Wno-narrowing',
+    '-Wno-stringop-truncation',
+    '-Wno-stringop-overflow',
+    '-Wno-format-truncation',
+    '-Wno-implicit-fallthrough',
+    '-Wno-pragmas',
+    '-Wno-format',
+    '-Wno-maybe-uninitialized',
+    '-Wno-pointer-arith',
+    '-Wno-parentheses',
+    '-Wno-deprecated-declarations',
+    '-Wno-attributes',
+    '-Wno-type-limits',
+    '-Wno-address',
+    '-Wno-catch-value',
+    '-gno-statement-frontiers',
+    '-gno-variable-location-views',
+]
+
+
+cc_config(
+    cxxflags={
+        'base': ['-std=c++20', '-w', '-Wno-everything', '-DMSP_CUSTOM_TAG'],
+        'x86_64-gcc830': buster_cxxflags,
+        'aarch64-gcc830': buster_cxxflags,
+        'x86_64-clang1101': [
+            "-fopenmp=libomp",
+            "-DJSON_NOT_ALLOW_DUP_KEY", "-mavx2", 
+            "-mpclmul", "-mbmi", "-DRAPIDJSON_SONIC=1",
+            "-DSONIC_ALLOCATOR_DEFAULT_CHUNK_CAPACITY=4096"
+        ]
+    },
+    cflags={
+        'base': ['-DHAVE_CONFIG_H', '-DHAVE_NETINET_IN_H' ,'-DHAVE_INTTYPES_H' ,'-DLINUX'],
+        'x86_64-gcc830': [
+            '-Wno-maybe-uninitialized',
+            '-Wno-implicit-fallthrough',
+            '-Wno-implicit-function-declaration',
+            '-gno-statement-frontiers',
+            '-gno-variable-location-views',
+        ],
+        'x86_64-gcc494':[
+            '-Wno-implicit-function-declaration',
+        ],
+    },
+    warnings=[],
+    linkflags={
+        'base': [],
+        'x86_64-gcc830': ['-fuse-ld=gold'],
+        'x86_64-clang1101': ['-fuse-ld=lld','-fopenmp=libomp'],
+    },
+    filter_flags=['-std=c++11', '-std=c++14', '-levent', '-lsasl2', '-lz', '-lbz2', '-lssl', '-lcrypto', '-lunwind', '-lmsgpackc', '-lmsgpack'],
+)
