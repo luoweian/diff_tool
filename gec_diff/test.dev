@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+start=`date +%s`
+echo "================= test started ================="
+source_root=$(cd `dirname $0`; pwd)
+cd $source_root
+
+build_in_local=0
+update_deps=1
+clang=1
+gcc=0
+while [ "$#" -gt 0 ]; do
+    case $1 in
+        -nu|--no-update-deps)
+            update_deps=0
+            shift
+            ;;
+        -bil|--build-in-local)
+            build_in_local=1
+            shift
+            ;;
+        -c | --clang)
+            clang=1
+            gcc=0
+            shift
+            ;;
+        -g | --gcc)
+            gcc=1
+            clang=0
+            shift
+            ;;
+        -h|--help)
+            echo "usage: ./test.dev [-nu|--no-update-deps] [-bil|--build-in-local] [-c|--clang] [-g|--gcc]"
+            exit 1
+            ;;
+        *)
+            echo "error: unrecognized option $1"
+            echo "usage: ./test.dev [-nu|--no-update-deps] [-bil|--build-in-local] [-c|--clang] [-g|--gcc]"
+            exit 1
+    esac
+done
+
+if [ $build_in_local -eq 1 ]; then
+    export DISABLE_CAS=1
+    export DISABLE_DISTCC=1
+fi
+
+blade_args="--split-dwarf"
+if [ $update_deps -eq 1 ]; then
+    blade_args="$blade_args --update-deps"
+fi
+
+if [ $clang -eq 1 ] || [ "$LLVM_ENABLE" = "1" ] || [ "$CUSTOM_LLVM_ENABLE" = "1" ]; then
+    source /etc/os-release
+    cp ./BLADE_ROOT_LLVM.local ../BLADE_ROOT.local
+    if [ $VERSION_ID -lt 9 ]; then
+        echo "clang无法在 Debian8 及以下的机器使用, 当前Debian版本为 $VERSION_ID"
+        echo "如需切换到gcc830, 请使用./test.dev --gcc"
+        exit 1
+    else
+        echo "=== using llvm in gec_diff test ==="
+        export TOOLCHAIN=x86_64-clang1101
+        blade test --toolchain=x86_64-clang1101 --enable-bpt :gec_diff_test $blade_args
+    fi
+else
+    echo "=== using gcc830 in gec_diff test ==="
+    blade test --toolchain=x86_64-gcc830 :gec_diff_test $blade_args
+fi
+
+if [ $? -ne 0 ]; then
+    echo "==============!!! test failed !!!==============";
+    exit 1;
+fi
+echo "================= test success ================="
+end=`date +%s`
+echo "================= use $[end-start] seconds =============="
