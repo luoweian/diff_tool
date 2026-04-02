@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "gec_diff.h"
+#include "src/gec_diff.cpp"
 
 using namespace diff;
 

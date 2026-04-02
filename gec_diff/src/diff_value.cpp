@@ -5,7 +5,23 @@
 #include <stdexcept>
 
 namespace diff {
-
+    
+const char* DiffValue::TypeName() const {
+    switch (type) {
+        case ValueType::INT32:     return "int32";
+        case ValueType::INT64:     return "int64";
+        case ValueType::UINT32:    return "uint32";
+        case ValueType::UINT64:    return "uint64";
+        case ValueType::FLOAT32:   return "float32";
+        case ValueType::FLOAT64:   return "float64";
+        case ValueType::BOOL:      return "bool";
+        case ValueType::STRING:    return "string";
+        case ValueType::BYTES:     return "bytes";
+        case ValueType::JSON:      return "json";
+        case ValueType::NULL_TYPE: return "null";
+    }
+    return "unknown";
+}
 std::string DiffValue::DebugString() const {
     std::ostringstream oss;
     switch (type) {
